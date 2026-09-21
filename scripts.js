@@ -1,1 +1,21 @@
-// Reveal-on-scroll: adds "visible" to .reveal elements as they enter the viewport document.addEventListener('DOMContentLoaded', function () { var revealEls = document.querySelectorAll('.reveal'); if (!('IntersectionObserver' in window) || revealEls.length === 0) { // Fallback: just show everything if IntersectionObserver isn't supported revealEls.forEach(function (el) { el.classList.add('visible'); }); return; } var observer = new IntersectionObserver(function (entries) { entries.forEach(function (entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }); revealEls.forEach(function (el) { observer.observe(el); }); });
+// Reveal-on-scroll: adds "visible" to .reveal elements as they enter the viewport
+document.addEventListener('DOMContentLoaded', function () {
+  var revealEls = document.querySelectorAll('.reveal');
+
+  if (!('IntersectionObserver' in window) || revealEls.length === 0) {
+    // Fallback: just show everything if IntersectionObserver isn't supported
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach(function (el) { observer.observe(el); });
+});
