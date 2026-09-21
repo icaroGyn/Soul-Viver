@@ -159,7 +159,7 @@
     background:var(--green-pale);
     display:flex; align-items:center; justify-content:center;
   }
-  .hero-mark svg.figure{ width:34%; }
+  .hero-mark svg.figure{ width:42%; }
 
   /* ---------- Intro strip ---------- */
   .intro{
