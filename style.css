@@ -461,7 +461,7 @@
   }
 
   /* ---------- Lateral bands (decorative side text) ---------- */
-  :root{ --side-w:26px; }
+  :root{ --side-w:30px; }
   body{
     padding-left:var(--side-w);
     padding-right:var(--side-w);
@@ -482,23 +482,24 @@
   .side-band.side-right{ right:0; }
   .side-band span{
     writing-mode:vertical-rl;
-    color:rgba(255,255,255,0.92);
+    color:#FFFFFF;
     font-family:'Work Sans', sans-serif;
-    font-size:0.72rem;
-    font-weight:500;
-    letter-spacing:0.06em;
+    font-size:0.86rem;
+    font-weight:600;
+    letter-spacing:0.09em;
     white-space:nowrap;
+    text-shadow:0 1px 2px rgba(0,0,0,0.15);
   }
   .side-band.side-left span{ transform:rotate(180deg); }
   @media (max-width:640px){
-    :root{ --side-w:16px; }
-    .side-band span{ font-size:0.58rem; }
+    :root{ --side-w:18px; }
+    .side-band span{ font-size:0.66rem; letter-spacing:0.06em; }
   }
 
-  /* ---------- New wordmark (icon + outline text + tagline) ---------- */
-  .wordmark{ display:flex; align-items:center; gap:10px; text-decoration:none; }
+  /* ---------- Wordmark (icon + legible text + tagline) ---------- */
+  .wordmark{ display:flex; align-items:center; gap:12px; text-decoration:none; }
   .wordmark .mark-icon{
-    width:30px; height:30px;
+    width:34px; height:34px;
     flex-shrink:0;
     color:var(--green-deep);
   }
@@ -506,34 +507,30 @@
     display:flex;
     flex-direction:column;
     line-height:1;
-    gap:3px;
+    gap:5px;
   }
   .wm-title{
     font-family:'Fraunces', serif;
-    font-weight:450;
-    font-size:1.35rem;
-    letter-spacing:0.01em;
+    font-weight:560;
+    font-size:1.42rem;
+    letter-spacing:0.005em;
     color:var(--green-deep);
-    -webkit-text-stroke:1px var(--green-deep);
-    text-stroke:1px var(--green-deep);
-  }
-  @supports (-webkit-text-stroke: 1px black){
-    .wm-title{ color:transparent; }
   }
   .wm-title .dot{
     display:inline-block;
     width:4px; height:4px;
     border-radius:50%;
     background:var(--green-deep);
-    margin:0 1px 6px;
-    -webkit-text-stroke:0;
+    margin:0 1px 8px;
   }
   .wm-tagline{
     font-family:'Work Sans', sans-serif;
-    font-size:0.56rem;
+    font-size:0.66rem;
     font-weight:500;
-    letter-spacing:0.05em;
-    color:var(--ink);
+    letter-spacing:0.09em;
+    color:var(--ink-soft);
     text-transform:lowercase;
   }
   footer .wordmark{ margin-bottom:14px; }
+  .cta-band .wordmark,
+  .cta-band .wordmark .wm-title{ color:#fff; }
