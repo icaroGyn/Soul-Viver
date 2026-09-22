@@ -1,3 +1,16 @@
+/* ---------- Reveal on scroll ---------- */
+
+.reveal.reveal-init{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.reveal-init.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
 :root{
   --green-deep:#0B6B57;
   --green-deep-2:#095A49;
