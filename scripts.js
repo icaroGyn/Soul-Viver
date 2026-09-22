@@ -1,12 +1,15 @@
-// Reveal-on-scroll: adds "visible" to .reveal elements as they enter the viewport
+// Reveal-on-scroll: adds a fade/slide-in animation as sections enter the viewport.
+// Safe by design: sections are fully visible by default in the CSS, so if this
+// script fails to load for any reason, the content still shows normally.
 document.addEventListener('DOMContentLoaded', function () {
   var revealEls = document.querySelectorAll('.reveal');
 
   if (!('IntersectionObserver' in window) || revealEls.length === 0) {
-    // Fallback: just show everything if IntersectionObserver isn't supported
-    revealEls.forEach(function (el) { el.classList.add('visible'); });
-    return;
+    return; // nothing to do — content is already visible via CSS defaults
   }
+
+  // Only now do we switch these elements into the "hidden, about to animate" state.
+  revealEls.forEach(function (el) { el.classList.add('reveal-init'); });
 
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
